@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
+
+//2 way data binding: ng model
 export class UserComponent implements OnInit {
 
   name:string;
@@ -29,7 +31,22 @@ export class UserComponent implements OnInit {
     this.hello = 'hello';
   }
   onclick(){
-    console.log("Hello")
+    this.name = "Ronish Shrestha";
+    
+  }
+  addHobby(hobby){
+    console.log(hobby);
+   this.hobbies.unshift(hobby);
+   return false;
+   //something related to event bubbling/propagation
+  }
+  remove(hobby){
+    for(let i =0;i<this.hobbies.length;i++){
+      if(this.hobbies[i]==hobby){
+        this.hobbies.splice(i,1);
+
+      }
+    }
   }
 
 }
